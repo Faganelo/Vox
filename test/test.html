@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+</head>
+<body>
+<style type="text/css">
+  .footer-post { 
+  background-color: #0277bd; 
+  position: absolute; /* Alterar para "absolute" aqui:::: <- */ 
+  bottom: 0; left:0;  
+  width:100%;  height: 40px;
+  box-shadow: 0px -0.5px 5px #81d4fa;
+}
+.btn { position: absolute; top:5px; color:#eeeeee;}
+
+.dropzone input[type="file"]{ opacity: 0; filter: alpha(opacity=0); }
+.dropzone { position:absolute; top: 5px;background-color: red; height: 30px; width:65px; z-index: 1000;}
+</style>
+
+  <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--1-col">
+          <div class="dropzone">
+            <button class="btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">   
+                  <i class="material-icons md-36 md-light posticon" >photo</i>
+              </button>
+          </div>
+        </div>
+        <div class="mdl-cell mdl-cell--1-col">
+        <button class="btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+              <i class="material-icons md-36 md-light posticon" >shuffle</i>
+          </button>
+        </div>
+        <div class="mdl-cell mdl-cell--1-col">
+        <button class="btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+              <i class="material-icons md-36 md-light posticon " >format_shapes</i>
+          </button>
+      </div>
+<script type="text/javascript" src="scripts/imgur.js"></script>
+    <script type="text/javascript">
+        var feedback = function (res) {
+            if (res.success === true) {
+                document.querySelector('.status').classList.add('bg-success');
+                document.querySelector('.status').innerHTML = 'Image url: ' + res.data.link;
+            }
+        };
+
+        new Imgur({
+            clientid: 'cc86a8de0e7c459',
+            callback: feedback
+        });
+    </script>
+</body>
+</html>
